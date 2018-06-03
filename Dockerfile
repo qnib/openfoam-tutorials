@@ -1,6 +1,6 @@
 FROM ubuntu AS down
 
-ENV OF_VER=5-0
+ENV OF_VER=4-0
 WORKDIR /data/
 RUN apt-get update \
  && apt-get install -y wget \
@@ -14,5 +14,5 @@ RUN go build -ldflags "-linkmode external -extldflags -static" -a main.go
 
 FROM scratch
 COPY --from=build /go/src/github.com/qnib/example/main /main
-COPY --from=down /data /
+COPY --from=down /data/tutorials /tutorials
 CMD ["/main"]
