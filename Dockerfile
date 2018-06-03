@@ -1,6 +1,6 @@
 FROM ubuntu AS down
 
-ENV OF_VER=4-0
+ENV OF_VER=5-0
 WORKDIR /data/
 RUN apt-get update \
  && apt-get install -y wget \
